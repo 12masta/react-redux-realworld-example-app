@@ -1,0 +1,41 @@
+class User {
+
+  constructor(username, email, password) {
+    this.username = username;
+    this.email = email;
+    this.password = password;
+  }
+
+  create() {
+    Cypress.log({
+      name: 'Log.User.create()',
+      message: `${this.username} | ${this.email} | ${this.password}`
+    })
+
+    cy.request('POST', 'http://localhost:5000/users', {
+      user: {
+        username: this.username,
+        email: this.email,
+        password: this.password
+      }
+    })
+    return this;
+  }
+
+  remove() {
+    Cypress.log({
+      name: 'Log.User.remove()',
+      message: `${this.username} | ${this.email} | ${this.password}`
+    })
+    cy.request('DELETE', 'http://localhost:5000/users', {
+      user: {
+        username: this.username,
+        email: this.email,
+        password: this.password
+      }
+    })
+    return this;
+  }
+}
+
+export default User;
