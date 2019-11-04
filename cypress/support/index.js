@@ -15,6 +15,11 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import './api/apiCommands'
+import './common/urlAssertionsCommands'
+import './login/loginAssertionsCommands'
+import './login/loginCommands'
+
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
