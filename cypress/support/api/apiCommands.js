@@ -1,20 +1,22 @@
+const usersEndpointUrl = Cypress.config('apiUrl') + '/users'
+
 Cypress.Commands.add('createNewUserAPI', (username, email, password) => {
     Cypress.log({
         name: 'createNewUserAPI',
         message: `${username} | ${email}| ${password}`
     })
-    cy.request('DELETE', 'http://localhost:5000/users', {
+    cy.request('DELETE', usersEndpointUrl, {
         user: {
-            username: 'test',
-            email: 'test@test.com',
-            password: 'test'
+            username: this.username,
+            email: this.email,
+            password: this.password
         }
     })
-    cy.request('POST', 'http://localhost:5000/users', {
+    cy.request('POST', usersEndpointUrl, {
         user: {
-            username: 'test',
-            email: 'test@test.com',
-            password: 'test'
+            username: this.username,
+            email: this.email,
+            password: this.password
         }
     })
 })
@@ -24,11 +26,11 @@ Cypress.Commands.add('deleteUserAPI', (username, email, password) => {
         name: 'deleteUserAPI',
         message: `${username} | ${email}| ${password}`
     })
-    cy.request('DELETE', 'http://localhost:5000/users', {
+    cy.request('DELETE', usersEndpointUrl, {
         user: {
-            username: 'test',
-            email: 'test@test.com',
-            password: 'test'
+            username: this.username,
+            email: this.email,
+            password: this.password
         }
     })
 })

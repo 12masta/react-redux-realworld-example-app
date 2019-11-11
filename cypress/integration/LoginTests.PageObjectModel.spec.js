@@ -2,17 +2,23 @@ import LoginPage from '../pageobjects/LoginPage'
 import User from '../requests/User'
 
 describe('Login Tests Page Objects', function () {
+
+  const baseUrl = Cypress.config('baseUrl')
+
+  beforeEach(function () {
+    cy.visit('/login')
+  })
+
   it('Successfull login', function () {
     new User('test', 'test@test.com', 'test')
       .remove()
       .create()
 
-    cy.visit('http://localhost:4100/login')
     const homePage = new LoginPage()
       .loginCorrectPass('test@test.com', 'test')
 
     homePage.url()
-      .should('contain', 'http://localhost:4100/')
+      .should('equal', baseUrl + '/')
     homePage.userProfile()
       .should('have.attr', 'href', '/@test')
     homePage.settings()
@@ -26,13 +32,11 @@ describe('Login Tests Page Objects', function () {
       .remove()
       .create()
 
-    cy.visit('http://localhost:4100/login')
-
     const loginPage = new LoginPage()
       .loginIncorrectPass('test@test.com', 'test-incorrect')
 
     loginPage.url()
-      .should('contain', 'http://localhost:4100/login')
+      .should('equal', baseUrl + '/login')
     loginPage.errorMessage()
       .should('have.text', 'Error Invalid email / password.')
   })
@@ -41,25 +45,21 @@ describe('Login Tests Page Objects', function () {
     new User('test', 'test@test.com', 'test')
       .remove()
 
-    cy.visit('http://localhost:4100/login')
-
     const loginPage = new LoginPage()
       .loginIncorrectPass('test@test.com', 'test')
 
     loginPage.url()
-      .should('contain', 'http://localhost:4100/login')
+      .should('equal', baseUrl + '/login')
     loginPage.errorMessage()
       .should('have.text', 'Error Invalid email / password.')
   })
 
   it('Empty fields', function () {
-    cy.visit('http://localhost:4100/login')
-
     const loginPage = new LoginPage()
       .loginIncorrectPass('', '')
 
     loginPage.url()
-      .should('contain', 'http://localhost:4100/login')
+      .should('equal', baseUrl + '/login')
     loginPage.errorMessage()
       .should('have.length', 2)
     loginPage.errorMessage().first()

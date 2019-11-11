@@ -1,8 +1,9 @@
-Cypress.Commands.add('shouldUrlContain', (url) => {
+Cypress.Commands.add('shouldUrlBe', (subPath) => {
+    const url = Cypress.config('baseUrl') + subPath
     Cypress.log({
-        name: 'shouldUrlContain',
+        name: 'shouldUrlBe',
         message: `${url}`
     })
     cy.url()
-        .should('contain', url)
+        .should('equal', url)
 })
