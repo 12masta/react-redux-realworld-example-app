@@ -7,16 +7,16 @@ Cypress.Commands.add('createNewUserAPI', (username, email, password) => {
     })
     cy.request('DELETE', usersEndpointUrl, {
         user: {
-            username: this.username,
-            email: this.email,
-            password: this.password
+            username: username,
+            email: email,
+            password: password
         }
     })
     cy.request('POST', usersEndpointUrl, {
         user: {
-            username: this.username,
-            email: this.email,
-            password: this.password
+            username: username,
+            email: email,
+            password: password
         }
     })
 })
@@ -28,9 +28,9 @@ Cypress.Commands.add('deleteUserAPI', (username, email, password) => {
     })
     cy.request('DELETE', usersEndpointUrl, {
         user: {
-            username: this.username,
-            email: this.email,
-            password: this.password
+            username: username,
+            email: email,
+            password: password
         }
     })
 })
