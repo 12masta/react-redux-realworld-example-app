@@ -3,11 +3,11 @@ Cypress.Commands.add('shouldBeLoggedIn', (username, email, password) => {
         name: 'shouldBeLoggedIn',
         message: `${username} | ${email}| ${password}`
     })
-    cy.get(':nth-child(4) > .nav-link')
+    cy.get('[data-cy=profile-link]')
         .should('have.attr', 'href', '/@test')
-        .get(':nth-child(3) > .nav-link')
+        .get('[data-cy=settings-link]')
         .should('have.attr', 'href', '/settings')
-        .get('.container > .nav > :nth-child(2) > .nav-link')
+        .get('[data-cy=editor-link]')
         .should('have.attr', 'href', '/editor')
 })
 
@@ -16,7 +16,7 @@ Cypress.Commands.add('shouldErrorMessageBeValid', (text) => {
         name: 'shouldErrorMessageBeValid',
         message: `${text}`
     })
-    cy.get('.error-messages > li')
+    cy.get('[data-cy=error-message]')
         .should('have.text', text)
 })
 
@@ -25,8 +25,9 @@ Cypress.Commands.add('shouldErrorMessagesBeValid', (message, secondeMessgae) => 
         name: 'shouldErrorMessagesBeValid',
         message: `${message} | ${secondeMessgae}`
     })
-    cy.get('.error-messages > :nth-child(1)')
+    cy.get('[data-cy=error-message]')
+        .first()
         .should('have.text', message)
-        .get('.error-messages > :nth-child(2)')
+        .next()
         .should('have.text', secondeMessgae)
 })
