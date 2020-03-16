@@ -1,0 +1,16 @@
+{
+  "name": "playwrighttests",
+  "version": "1.0.0",
+  "description": "e2e tests with playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Marcin Stanek",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.0",
+    "playwright": "^0.11.1"
+  }
+}
