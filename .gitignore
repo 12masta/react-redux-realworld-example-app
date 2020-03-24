@@ -16,3 +16,6 @@ npm-debug.log
 .idea
 
 playwrighttests/screenshots/test*
+__diff_output__
+cypress/videos
+cypress/screenshots
