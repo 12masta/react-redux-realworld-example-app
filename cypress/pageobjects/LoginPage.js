@@ -3,14 +3,14 @@ import HomePage from './HomePage'
 class LoginPage {
     login(email, password) {
         if (email) {
-            cy.get(':nth-child(1) > .form-control')
+            cy.get('[data-cy=email-input]')
                 .type(email)
         }
         if (password) {
-            cy.get(':nth-child(2) > .form-control')
+            cy.get('[data-cy=password-input]')
                 .type(password)
         }
-        cy.get('.btn')
+        cy.get('[data-cy=button-input]')
             .click()
     }
 
@@ -29,7 +29,7 @@ class LoginPage {
     }
 
     errorMessage() {
-        return cy.get('.error-messages > li')
+        return cy.get('[data-cy=error-message]')
     }
 }
 

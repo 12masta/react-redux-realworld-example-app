@@ -4,13 +4,13 @@ Cypress.Commands.add('login', (username, password) => {
         message: `${username} | ${password}`,
     })
     if (username) {
-        cy.get(':nth-child(1) > .form-control')
+        cy.get('[data-cy=email-input]')
             .type(username)
     }
     if (password) {
-        cy.get(':nth-child(2) > .form-control')
+        cy.get('[data-cy=password-input]')
             .type(password)
     }
-    cy.get('.btn')
+    cy.get('[data-cy=button-input]')
         .click()
 })
