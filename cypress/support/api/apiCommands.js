@@ -1,4 +1,4 @@
-const usersEndpointUrl = Cypress.config('apiUrl') + '/users'
+const usersEndpointUrl = Cypress.env('apiUrl') + '/users'
 
 Cypress.Commands.add('createNewUserAPI', (username, email, password) => {
     Cypress.log({

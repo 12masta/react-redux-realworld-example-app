@@ -1,6 +1,6 @@
 describe('Login Tests', function () {
   const baseUrl = Cypress.config('baseUrl')
-  const apiUrl = Cypress.config('apiUrl')
+  const apiUrl = Cypress.env('apiUrl')
 
   it('Successfull login', function () {
     cy.request('DELETE', `${apiUrl}/users`, {

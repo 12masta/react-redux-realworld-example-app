@@ -1,5 +1,5 @@
 class User {
-  usersEndpointUrl = Cypress.config('apiUrl') + '/users'
+  usersEndpointUrl = Cypress.env('apiUrl') + '/users'
 
   constructor(username, email, password) {
     this.username = username;
