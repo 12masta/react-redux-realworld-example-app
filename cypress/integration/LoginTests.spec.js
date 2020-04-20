@@ -1,13 +1,16 @@
 describe('Login Tests', function () {
+  const baseUrl = Cypress.config('baseUrl')
+  const apiUrl = Cypress.config('apiUrl')
+
   it('Successfull login', function () {
-    cy.request('DELETE', 'http://localhost:5000/users', {
+    cy.request('DELETE', `${apiUrl}/users`, {
       user: {
         username: 'test',
         email: 'test@test.com',
         password: 'test'
       }
     })
-    cy.request('POST', 'http://localhost:5000/users', {
+    cy.request('POST', `${apiUrl}/users`, {
       user: {
         username: 'test',
         email: 'test@test.com',
@@ -15,7 +18,7 @@ describe('Login Tests', function () {
       }
     })
 
-    cy.visit('http://localhost:4100/login')
+    cy.visit(`${baseUrl}/login`)
 
     cy.get(':nth-child(1) > .form-control')
       .type('test@test.com')
@@ -25,7 +28,7 @@ describe('Login Tests', function () {
       .click()
 
     cy.url()
-      .should('contain', 'http://localhost:4100/')
+      .should('contain', `${baseUrl}/`)
     cy.get(':nth-child(4) > .nav-link')
       .should('have.attr', 'href', '/@test')
     cy.get(':nth-child(3) > .nav-link')
@@ -35,14 +38,14 @@ describe('Login Tests', function () {
   })
 
   it('Incorrect password', function () {
-    cy.request('DELETE', 'http://localhost:5000/users', {
+    cy.request('DELETE', `${apiUrl}/users`, {
       user: {
         username: 'test',
         email: 'test@test.com',
         password: 'test'
       }
     })
-    cy.request('POST', 'http://localhost:5000/users', {
+    cy.request('POST', `${apiUrl}/users`, {
       user: {
         username: 'test',
         email: 'test@test.com',
@@ -50,7 +53,7 @@ describe('Login Tests', function () {
       }
     })
 
-    cy.visit('http://localhost:4100/login')
+    cy.visit(`${baseUrl}/login`)
 
     cy.get(':nth-child(1) > .form-control')
       .type('test@test.com')
@@ -60,13 +63,13 @@ describe('Login Tests', function () {
       .click()
 
     cy.url()
-      .should('contain', 'http://localhost:4100/login')
+      .should('contain', `${baseUrl}/login`)
     cy.get('.error-messages > li')
       .should('have.text', 'Error Invalid email / password.')
   })
 
   it('Not existing user', function () {
-    cy.request('DELETE', 'http://localhost:5000/users', {
+    cy.request('DELETE', `${apiUrl}/users`, {
       user: {
         username: 'test',
         email: 'test@test.com',
@@ -74,7 +77,7 @@ describe('Login Tests', function () {
       }
     })
 
-    cy.visit('http://localhost:4100/login')
+    cy.visit(`${baseUrl}/login`)
 
     cy.get(':nth-child(1) > .form-control')
       .type('test@test.com')
@@ -84,19 +87,19 @@ describe('Login Tests', function () {
       .click()
 
     cy.url()
-      .should('contain', 'http://localhost:4100/login')
+      .should('contain', `${baseUrl}/login`)
     cy.get('.error-messages > li')
       .should('have.text', 'Error Invalid email / password.')
   })
 
   it('Empty fields', function () {
-    cy.visit('http://localhost:4100/login')
+    cy.visit(`${baseUrl}/login`)
 
     cy.get('.btn')
       .click()
 
     cy.url()
-      .should('contain', 'http://localhost:4100/login')
+      .should('contain', `${baseUrl}/login`)
     cy.get('.error-messages > :nth-child(1)')
       .should('have.text', '\'Email\' must not be empty.')
     cy.get('.error-messages > :nth-child(2)')
