@@ -21,5 +21,5 @@ steps:
     npm install
     export CYPRESS_BASE_URL=$(baseUrl)
     export CYPRESS_API_URL=$(apiUrl)
-    CYPRESS_APIURL=https://conduit-backend.herokuapp.com npx cypress run
+    CYPRESS_APIURL=$(apiUrl) npx cypress run
   displayName: 'npm install and execute cypress tests'
