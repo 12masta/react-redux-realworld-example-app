@@ -18,5 +18,7 @@ const {
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+  config.baseUrl = process.env.BASE_URL || config.baseUrl;
+  config.env.apiUrl = process.env.API_URL || config.env.apiUrl;
   addMatchImageSnapshotPlugin(on, config);
 }
