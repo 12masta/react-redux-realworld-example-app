@@ -19,5 +19,7 @@ steps:
 
 - script: |
     npm install
-    CYPRESS_BASE_URL=https://conduit-ef845.web.app CYPRESS_APIURL=https://conduit-backend.herokuapp.com npx cypress run
+    export CYPRESS_BASE_URL=https://conduit-ef845.web.app
+    export CYPRESS_APIURL=https://conduit-backend.herokuapp.com
+    npx cypress run
   displayName: 'npm install and execute cypress tests'
