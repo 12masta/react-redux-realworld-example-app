@@ -19,5 +19,12 @@ steps:
 
 - script: |
     npm install
+  displayName: 'Install dependecies'
+
+- script: |
+    npm run cy:verify
+  displayName: 'Cypress verify'
+
+- script: |
     npx cypress run
-  displayName: 'npm install and execute cypress tests'
+  displayName: 'Execute cypress tests'
