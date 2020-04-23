@@ -31,6 +31,7 @@
     "eject": "react-scripts eject",
     "cy:run": "cypress run",
     "cy:verify": "cypress verify",
-    "cy:info": "cypress info"
+    "cy:help": "cypress help",
+    "cy:version": "cypress version"
   }
 }

@@ -21,4 +21,5 @@ module.exports = (on, config) => {
   config.baseUrl = process.env.BASE_URL || config.baseUrl;
   config.env.apiUrl = process.env.API_URL || config.env.apiUrl;
   addMatchImageSnapshotPlugin(on, config);
+  return config
 }
