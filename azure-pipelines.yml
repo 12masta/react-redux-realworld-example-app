@@ -22,6 +22,11 @@ steps:
   displayName: 'Install dependecies'
 
 - script: |
+    export "apiUrl=https://conduit-backend.herokuapp.com"
+  displayName: 'set api url'
+  
+
+- script: |
     npm run cy:verify
   displayName: 'Cypress verify'
 
