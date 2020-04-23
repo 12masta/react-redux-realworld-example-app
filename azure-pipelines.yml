@@ -28,3 +28,7 @@ steps:
 - script: |
     npx cypress run
   displayName: 'Execute cypress tests'
+
+- script: |
+    npm run cy:run
+  displayName: 'Execute cypress tests'
