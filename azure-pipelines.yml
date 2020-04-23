@@ -17,14 +17,14 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
+- script:
     npm install
   displayName: 'Install dependecies'  
 
-- script: |
+- script:
     npm run cy:verify
   displayName: 'Cypress verify'
 
-- script: |
+- script:
     npm run cy:run
   displayName: 'Execute cypress tests'
