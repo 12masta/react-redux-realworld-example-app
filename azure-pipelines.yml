@@ -19,20 +19,11 @@ steps:
 
 - script: |
     npm install
-  displayName: 'Install dependecies'
-
-- script: |
-    export "apiUrl=https://conduit-backend.herokuapp.com"
-  displayName: 'set api url'
-  
+  displayName: 'Install dependecies'  
 
 - script: |
     npm run cy:verify
   displayName: 'Cypress verify'
-
-- script: |
-    npx cypress run
-  displayName: 'Execute cypress tests'
 
 - script: |
     npm run cy:run
