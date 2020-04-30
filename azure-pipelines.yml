@@ -27,9 +27,12 @@ steps:
 
 - script:
     npm run cy:run --reporter junit --reporter-options 'mochaFile=results/TEST-[hash].xml,toConsole=true'
+  continueOnError: true
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/TEST-*.xml'
+    mergeTestResults: true
+    failTaskOnFailedTests: true
     testRunTitle: 'Cypress tests'
-  displayName: 'Execute cypress tests'
