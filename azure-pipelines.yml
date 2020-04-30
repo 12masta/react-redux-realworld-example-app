@@ -28,6 +28,7 @@ steps:
 - script:
     npm run cy:run-junit-reporter
   continueOnError: true
+  displayName: 'Execute cypress tests' 
 
 - task: PublishTestResults@2
   inputs:
