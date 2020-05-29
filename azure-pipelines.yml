@@ -62,4 +62,4 @@ steps:
       $nl = "`r`n`r`n"
       $dnl = "$nl $nl"
       
-      Send-SlackMessage "<!channel> $nl Automation Project Test Results $dnl BuildId: $($env:BUILD_BUILDID) $dnl Test results: https://dev.azure.com/marcinstanekpl/Conduit%20e2e%20tests/_build/results?buildId=$($env:BUILD_BUILDID)&view=ms.vss-test-web.build-test-results-tab $dnl Test analitycs: https://dev.azure.com/marcinstanekpl/Conduit%20e2e%20tests/_test/analytics?definitionId=1&contextType=build" $($env:WEBHOOK_URL)
+      Send-SlackMessage "<!channel> $nl Automation Project Test Results $dnl BuildId: $($env:BUILD_BUILDID) $dnl Test results: https://dev.azure.com/$($env:REPORTS_PARTIAL_URL)/_build/results?buildId=$($env:BUILD_BUILDID)&view=ms.vss-test-web.build-test-results-tab $dnl Test analitycs: https://dev.azure.com/$($env:REPORTS_PARTIAL_URL)/_test/analytics?definitionId=1&contextType=build" $($env:WEBHOOK_URL)
