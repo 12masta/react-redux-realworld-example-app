@@ -36,6 +36,8 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     failTaskOnFailedTests: true
     testRunTitle: 'Cypress tests'
+  continueOnError: true
+
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
