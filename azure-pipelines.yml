@@ -37,7 +37,9 @@ steps:
     failTaskOnFailedTests: true
     testRunTitle: 'Cypress tests'
   continueOnError: true
+displayName: 'Publish test results' 
 
 - task: PowerShell@2
   inputs:
     filePath: 'devops/slack-message.ps1'
+  displayName: 'Send Slack message with link to test report' 
