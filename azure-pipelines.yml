@@ -49,7 +49,7 @@ steps:
           )
           $body= @"
           {
-              "username": "Test reporter",
+              "username": "Test reporter - $($env:BUILD_BUILDID)",
               "text": "MESSAGE_TEXT",
               "icon_emoji":":scroll:"
           }
