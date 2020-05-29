@@ -37,7 +37,7 @@ steps:
     failTaskOnFailedTests: true
     testRunTitle: 'Cypress tests'
   continueOnError: true
-displayName: 'Publish test results' 
+  displayName: 'Publish test results' 
 
 - task: PowerShell@2
   inputs:
