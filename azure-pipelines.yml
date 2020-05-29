@@ -51,7 +51,7 @@ steps:
           {
               "username": "Test reporter",
               "text": "MESSAGE_TEXT",
-              "icon_emoji":":scroll:"
+              "icon_emoji":":shipit:"
           }
       "@
       
