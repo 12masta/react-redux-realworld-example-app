@@ -4,7 +4,7 @@ function SendSlackTestReport {
     )
     $nl = [Environment]::NewLine
     $icon = $env:E2E_RESULTS_ICON
-    $buildid = $(Build.BuildId)
+    $buildid = $env:BUILD_BUILDID
     $testresultslink = "https://dev.azure.com/marcinstanekpl/Conduit%20e2e%20tests/_build/results?buildId=$buildid&view=ms.vss-test-web.build-test-results-tab"
     $pipelinepassratelink = "https://dev.azure.com/marcinstanekpl/Conduit%20e2e%20tests/_pipeline/analytics/stageawareoutcome?definitionId=1&contextType=build"
     $testpassrate = "https://dev.azure.com/marcinstanekpl/Conduit%20e2e%20tests/_test/analytics?definitionId=1&contextType=build"
