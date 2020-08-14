@@ -15,7 +15,7 @@ function SendSlackTestReport {
         "username"    = "Test reporter"
         "attachments" = @(
             @{
-                "text"   = "*<$testresultslink|E2e test results - $result>* $nl $nl BuildId: $buildid $nl $nl $nl Test results: $testresultslink $nl $nl Pipeline pass rate: $pipelinepassratelink $nl $nl Test pass rate: $testpassrate $nl $nl Pipeline duration: $pipelineduration"
+                "text"   = "*<$testresultslink|E2e test results $result>* $nl $nl BuildId: $buildid $nl $nl $nl Test results: $testresultslink $nl $nl Pipeline pass rate: $pipelinepassratelink $nl $nl Test pass rate: $testpassrate $nl $nl Pipeline duration: $pipelineduration"
                 "footer" = "Message from Azure DevOps"
             }
         )
