@@ -43,3 +43,4 @@ steps:
   inputs:
     filePath: 'devops/slack-message.ps1'
   displayName: 'Send Slack message with link to test report' 
+  condition: always()
